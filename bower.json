@@ -1,0 +1,21 @@
+{
+  "name": "angular-forms-one",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "jmcgarr <jmcgarr@fexco.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "angularjs#1.4"
+  }
+}
