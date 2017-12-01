@@ -5,13 +5,18 @@
     <title>Title</title>
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="app/AngularFormsApp.js"></script>
+    <script src="app/DataService.js"></script>
+
     <script src="app/EmployeeForm/efController.js"></script>
-    <script src="app/EmployeeForm/efService.js"></script>
     <script src="app/EmployeeForm/efDirective.js"></script>
 </head>
-<body ng-controller="efController" class="container">
-    <br />
-    <employee-form />
+<body class="container">
+    <h1>Start Page</h1>
+    <div ng-view>
+
+    </div>
 </body>
 </html>

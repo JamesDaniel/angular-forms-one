@@ -1,5 +1,11 @@
-angularFormsApp.controller('efController', function efController($scope, efService) {
-    $scope.employee = efService.employee;
+angularFormsApp.controller('efController', function efController($scope, $window, $routeParams, $uibModalStack, DataService) {
+
+    if ($routeParams.id)
+        $scope.employee = DataService.getEmployee($routeParams.id);
+    else
+        $scope.employee = { id: 0 }
+
+    $scope.editableEmployee = angular.copy($scope.employee);
 
     $scope.departments = [
         "Engineering",
@@ -9,6 +15,21 @@ angularFormsApp.controller('efController', function efController($scope, efServi
     ];
 
     $scope.submitForm = function () {
-        console.log(JSON.stringify($scope.employee, null, 2));
-    }
+        if ($scope.editableEmployee.id = 0) {
+            // insert new employee
+            DataService.insertEmployee($scope.editableEmployee);
+        } else {
+            // update employee
+            DataService.updateEmployee($scope.editableEmployee);
+        }
+
+        $scope.employee = angular.copy($scope.editableEmployee);
+        //$window.history.back();
+        $uibModalStack.dismissAll();
+    };
+
+    $scope.cancelForm = function () {
+        //$window.history.back();
+        $uibModalStack.dismissAll();
+    };
 });
